@@ -285,6 +285,9 @@ def nvre_compare(t1, t2):
 
 def hdrLabelCompare(hdr1, hdr2):
     """ take two RPMs or headers and compare them for order """
+    print("hdrLabelCompare")
+    print(hdr1)
+    print(hdr2)
 
     hdr1 = hdr1[0]
     hdr2 = hdr2[0]
@@ -306,9 +309,12 @@ def sortRPMs(rpms):
     """ Sorts a list of RPM files. They *must* exist.  """
 
     assert isinstance(rpms, type([]))
+    print("sortRPMs")
+    print(rpms)
 
     # Build a list of (header, rpm)
     helper = list(map(lambda x: (get_package_header(x), x), rpms))
+    print(helper)
 
     # Sort the list using the headers as a comparison
     helper = sorted(helper, key=functools.cmp_to_key(hdrLabelCompare))
